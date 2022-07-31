@@ -64,6 +64,8 @@ const stations = [
   },
 ];
 
+const random = Math.floor(Math.random() * 37466);
+
 const position: Record<number, CSSProperties> = {
   0: {
     top: 0,
@@ -135,7 +137,7 @@ const Home: NextPage = () => {
     <>
       <div className="fixed left-0 top-0 z-0 h-screen w-screen bg-gray-900">
         <ReactPlayer
-          url="https://www.youtube.com/watch?v=ZvPem5XYBrU"
+          url={`https://www.youtube.com/watch?v=ZvPem5XYBrU?t=${random}`}
           muted
           loop
           playing
