@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
+import toast from 'react-hot-toast';
 
 const stations = [
   {
@@ -123,6 +124,13 @@ const position: Record<number, CSSProperties> = {
 const Home: NextPage = () => {
   const [currentStation, setCurrentStation] = useState(stations.length);
 
+  const handleError = (error: unknown) => {
+    const message =
+      error instanceof Error ? error.message : `${error as string}`;
+
+    toast.error(message, { duration: Infinity });
+  };
+
   return (
     <>
       <div className="fixed left-0 top-0 z-0 h-screen w-screen bg-gray-900">
@@ -135,6 +143,7 @@ const Home: NextPage = () => {
           width="100%"
           height="100%"
           className="pointer-events-none absolute aspect-video w-screen select-none opacity-60"
+          onError={handleError}
         />
         {stations.map((station, index) => (
           <ReactPlayer
@@ -147,6 +156,7 @@ const Home: NextPage = () => {
             width="0"
             height="0"
             className="pointer-events-none select-none opacity-0"
+            onError={handleError}
           />
         ))}
       </div>
