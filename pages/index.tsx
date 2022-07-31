@@ -162,13 +162,15 @@ const Home: NextPage = () => {
       </div>
       <div className="fixed z-10 flex h-screen w-screen items-center justify-center">
         <div className="relative flex h-[30vw] w-[30vw] items-center justify-center rounded-full">
-          <Image
-            src="/logo.svg"
-            alt="San Andreas Radio"
-            width={150}
-            height={99}
-            className="fixed top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
-          />
+          <div className="fixed top-1/2 left-1/2 z-10 h-[12vw] w-[12vw] -translate-x-1/2 -translate-y-1/2">
+            <Image
+              src="/logo.svg"
+              alt="San Andreas Radio"
+              width={150}
+              height={99}
+              className="h-full w-full"
+            />
+          </div>
           {stations.map(({ image, name }, index) => (
             <div
               key={name}
