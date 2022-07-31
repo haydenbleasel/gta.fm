@@ -1,3 +1,7 @@
+const { withPlugins } = require('next-compose-plugins');
+const { createSecureHeaders } = require('next-secure-headers');
+const withPWA = require('next-pwa');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -14,6 +18,23 @@ const nextConfig = {
     },
     newNextLinkBehavior: true,
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: createSecureHeaders(),
+      },
+    ];
+  },
 };
 
-module.exports = nextConfig;
+const pwaConfig = {
+  pwa: {
+    dest: 'public',
+    disable: process.env.NODE_ENV === 'development',
+    dynamicStartUrl: false,
+    mode: process.env.NODE_ENV,
+  },
+};
+
+module.exports = withPlugins([[withPWA, pwaConfig]], nextConfig);
