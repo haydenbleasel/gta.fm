@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "fathom-client": "^3.5.0",
     "next": "12.2.3",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.5.5",
