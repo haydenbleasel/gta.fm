@@ -186,6 +186,8 @@ const Home: NextPage = () => {
           <Link
             href="https://twitter.com/haydenbleasel"
             className="absolute bottom-0 left-1/2 flex h-[6vw] w-[6vw] translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full bg-gray-900/20 opacity-30 backdrop-blur-sm transition-opacity hover:opacity-100"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Image
               src="/twitter.svg"
