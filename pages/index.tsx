@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import Image from 'next/future/image';
-import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
@@ -208,8 +207,8 @@ const Home: NextPage = () => {
                 index === currentStation ? 'opacity-100' : 'opacity-30'
               }`}
               style={position[index]}
-              onClick={changeStation}
-              onKeyDown={changeStation}
+              onClick={() => changeStation(index)}
+              onKeyDown={() => changeStation(index)}
               role="button"
               tabIndex={0}
             >
