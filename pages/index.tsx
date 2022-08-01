@@ -152,7 +152,7 @@ const Home: NextPage = () => {
   const onClickTwitter = () => {
     trackGoal('TDA5XWDK', 0);
 
-    window.location.href = 'https://twitter.com/haydenbleasel';
+    window.open('https://twitter.com/haydenbleasel', '_blank');
   };
 
   const changeStation = (index: number) => {
