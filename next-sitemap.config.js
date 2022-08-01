@@ -1,7 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-const config = {
+module.exports = {
   siteUrl: 'https://sanandreasradio.com',
   generateRobotsTxt: true,
 };
-
-export default config;
