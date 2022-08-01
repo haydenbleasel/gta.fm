@@ -8,7 +8,7 @@ const useAnalytics = (): void => {
   useEffect(() => {
     load(process.env.NEXT_PUBLIC_FATHOM_SITE_ID ?? '', {
       includedDomains: ['sanandreasradio.com'],
-      url: process.env.NEXT_PUBLIC_ANALYTICS_URL,
+      url: new URL('/script.js', process.env.NEXT_PUBLIC_ANALYTICS_URL).href,
     });
 
     const onRouteChangeComplete = () => trackPageview();
