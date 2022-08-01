@@ -7,6 +7,7 @@ const useAnalytics = (): void => {
 
   useEffect(() => {
     load(process.env.NEXT_PUBLIC_FATHOM_SITE_ID ?? '', {
+      includedDomains: ['https://sanandreasradio.com/'],
       url: process.env.NEXT_PUBLIC_ANALYTICS_URL,
     });
 
