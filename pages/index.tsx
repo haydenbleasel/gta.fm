@@ -5,62 +5,79 @@ import type { CSSProperties } from 'react';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import toast from 'react-hot-toast';
+import { trackGoal } from 'fathom-client';
 
-const stations = [
+const stations: {
+  name: string;
+  image: string;
+  stream: string;
+  trackingId: string;
+}[] = [
   {
     image: '/radio-ls.png',
     name: 'Radio LS',
     stream: 'https://www.youtube.com/watch?v=40FfiNThUOY',
+    trackingId: 'FLLNVYQG',
   },
   {
     image: '/radio-x.png',
     name: 'Radio X',
     stream: 'https://www.youtube.com/watch?v=rqMLTCBSsco',
+    trackingId: 'TEGOIR2C',
   },
   {
     image: '/csr.png',
     name: 'SR 103:9',
     stream: 'https://www.youtube.com/watch?v=nPurvKR4jZg',
+    trackingId: 'DG4FUNYF',
   },
   {
     image: '/kjah-west.png',
     name: 'KJAH West',
     stream: 'https://www.youtube.com/watch?v=KQCFvgmOff8',
+    trackingId: 'EQ4HOBD9',
   },
   {
     image: '/master-sounds.png',
     name: 'Master Sound',
     stream: 'https://www.youtube.com/watch?v=AsXBhthDKbA',
+    trackingId: 'KA4MP7HJ',
   },
   {
     image: '/wctr.png',
     name: 'CTR',
     stream: 'https://www.youtube.com/watch?v=ZgeHsKbGJbU',
+    trackingId: 'NMBUPDUU',
   },
   {
     image: '/playback-fm.svg',
     name: 'Playback FM',
     stream: 'https://www.youtube.com/watch?v=UobmbMPNc6E',
+    trackingId: 'HCIWCG0O',
   },
   {
     image: '/k-rose.svg',
     name: 'K Rose',
     stream: 'https://www.youtube.com/watch?v=MaP6nE7iPQg',
+    trackingId: 'GLS3HLXK',
   },
   {
     image: '/k-dst.png',
     name: 'K DST',
     stream: 'https://www.youtube.com/watch?v=GjUrSjjUbVk',
+    trackingId: 'NEN225EL',
   },
   {
     image: '/bounce-fm.png',
     name: 'Bounce FM',
     stream: 'https://www.youtube.com/watch?v=iUkf2vTXKJo',
+    trackingId: 'C79SPRNA',
   },
   {
     image: '/sfur.png',
     name: 'SFUR',
     stream: 'https://www.youtube.com/watch?v=9cA23sx-o9o',
+    trackingId: 'MVNL3TLO',
   },
 ];
 
@@ -133,6 +150,17 @@ const Home: NextPage = () => {
     toast.error(message, { duration: Infinity });
   };
 
+  const onClickTwitter = () => {
+    trackGoal('TDA5XWDK', 0);
+
+    window.location.href = 'https://twitter.com/haydenbleasel';
+  };
+
+  const changeStation = (index: number) => {
+    trackGoal(stations[index].trackingId, 0);
+    setCurrentStation(index);
+  };
+
   return (
     <>
       <div className="fixed left-0 top-0 z-0 h-screen w-screen bg-gray-900">
@@ -180,8 +208,8 @@ const Home: NextPage = () => {
                 index === currentStation ? 'opacity-100' : 'opacity-30'
               }`}
               style={position[index]}
-              onClick={() => setCurrentStation(index)}
-              onKeyDown={() => setCurrentStation(index)}
+              onClick={changeStation}
+              onKeyDown={changeStation}
               role="button"
               tabIndex={0}
             >
@@ -197,11 +225,12 @@ const Home: NextPage = () => {
               />
             </div>
           ))}
-          <Link
-            href="https://twitter.com/haydenbleasel"
+          <div
+            onClick={onClickTwitter}
+            onKeyDown={onClickTwitter}
+            role="button"
+            tabIndex={0}
             className="absolute bottom-0 left-1/2 flex h-[6vw] w-[6vw] translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full bg-gray-900/20 opacity-30 backdrop-blur-sm transition-opacity hover:opacity-100"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <Image
               src="/twitter.svg"
@@ -210,7 +239,7 @@ const Home: NextPage = () => {
               height={32}
               className="contrast-2 brightness-0 invert"
             />
-          </Link>
+          </div>
         </div>
       </div>
     </>

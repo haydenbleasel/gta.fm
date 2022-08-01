@@ -12,7 +12,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <link rel="favicon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
       </Head>
       <NextSeo
         title="San Andreas Radio"
