@@ -16,14 +16,14 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
       <NextSeo
         title="San Andreas Radio"
-        description="A project by Hayden Bleasel"
+        description="All you had to do was follow the damn train, CJ."
         canonical="https://sanandreasradio.com"
         openGraph={{
           type: 'website',
           locale: 'en_US',
           url: 'https://sanandreasradio.com',
           title: 'San Andreas Radio',
-          description: 'A project by Hayden Bleasel',
+          description: 'All you had to do was follow the damn train, CJ.',
           images: [
             {
               url: 'https://sanandreasradio.com/cover.png',
