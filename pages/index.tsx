@@ -4,7 +4,6 @@ import type { CSSProperties } from 'react';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import toast from 'react-hot-toast';
-import { trackGoal } from 'fathom-client';
 
 const stations: {
   name: string;
@@ -150,14 +149,7 @@ const Home: NextPage = () => {
   };
 
   const onClickTwitter = () => {
-    trackGoal('TDA5XWDK', 0);
-
     window.open('https://twitter.com/haydenbleasel', '_blank');
-  };
-
-  const changeStation = (index: number) => {
-    trackGoal(stations[index].trackingId, 0);
-    setCurrentStation(index);
   };
 
   return (
@@ -207,8 +199,8 @@ const Home: NextPage = () => {
                 index === currentStation ? 'opacity-100' : 'opacity-30'
               }`}
               style={position[index]}
-              onClick={() => changeStation(index)}
-              onKeyDown={() => changeStation(index)}
+              onClick={() => setCurrentStation(index)}
+              onKeyDown={() => setCurrentStation(index)}
               role="button"
               tabIndex={0}
             >
