@@ -1,8 +1,7 @@
 'use client';
 
-import type { NextPage } from 'next';
 import Image from 'next/image';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, FC } from 'react';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import toast from 'react-hot-toast';
@@ -140,7 +139,7 @@ const position: Record<number, CSSProperties> = {
   },
 };
 
-const Home: NextPage = () => {
+const Home: FC = () => {
   const [currentStation, setCurrentStation] = useState(stations.length);
 
   const handleError = (error: unknown) => {
