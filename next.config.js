@@ -6,17 +6,8 @@ const withPWA = require('next-pwa');
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   experimental: {
-    images: {
-      allowFutureImage: true,
-    },
-    newNextLinkBehavior: true,
+    appDir: true,
   },
   async headers() {
     return [
