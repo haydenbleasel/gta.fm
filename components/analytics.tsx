@@ -1,6 +1,7 @@
 'use client';
-import type { FC } from 'react';
+
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
+import type { FC } from 'react';
 
 const Analytics: FC = () => <VercelAnalytics />;
 

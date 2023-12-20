@@ -1,84 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import type { CSSProperties, FC } from 'react';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import toast from 'react-hot-toast';
-
-const stations: {
-  name: string;
-  image: string;
-  stream: string;
-  trackingId: string;
-}[] = [
-  {
-    image: '/radio-ls.png',
-    name: 'Radio LS',
-    stream: 'https://www.youtube.com/watch?v=40FfiNThUOY',
-    trackingId: 'FLLNVYQG',
-  },
-  {
-    image: '/radio-x.png',
-    name: 'Radio X',
-    stream: 'https://www.youtube.com/watch?v=rqMLTCBSsco',
-    trackingId: 'TEGOIR2C',
-  },
-  {
-    image: '/csr.png',
-    name: 'SR 103:9',
-    stream: 'https://www.youtube.com/watch?v=nPurvKR4jZg',
-    trackingId: 'DG4FUNYF',
-  },
-  {
-    image: '/kjah-west.png',
-    name: 'KJAH West',
-    stream: 'https://www.youtube.com/watch?v=KQCFvgmOff8',
-    trackingId: 'EQ4HOBD9',
-  },
-  {
-    image: '/master-sounds.png',
-    name: 'Master Sound',
-    stream: 'https://www.youtube.com/watch?v=AsXBhthDKbA',
-    trackingId: 'KA4MP7HJ',
-  },
-  {
-    image: '/wctr.png',
-    name: 'CTR',
-    stream: 'https://www.youtube.com/watch?v=ZgeHsKbGJbU',
-    trackingId: 'NMBUPDUU',
-  },
-  {
-    image: '/playback-fm.svg',
-    name: 'Playback FM',
-    stream: 'https://www.youtube.com/watch?v=UobmbMPNc6E',
-    trackingId: 'HCIWCG0O',
-  },
-  {
-    image: '/k-rose.svg',
-    name: 'K Rose',
-    stream: 'https://www.youtube.com/watch?v=MaP6nE7iPQg',
-    trackingId: 'GLS3HLXK',
-  },
-  {
-    image: '/k-dst.png',
-    name: 'K DST',
-    stream: 'https://www.youtube.com/watch?v=GjUrSjjUbVk',
-    trackingId: 'NEN225EL',
-  },
-  {
-    image: '/bounce-fm.png',
-    name: 'Bounce FM',
-    stream: 'https://www.youtube.com/watch?v=iUkf2vTXKJo',
-    trackingId: 'C79SPRNA',
-  },
-  {
-    image: '/sfur.png',
-    name: 'SFUR',
-    stream: 'https://www.youtube.com/watch?v=9cA23sx-o9o',
-    trackingId: 'MVNL3TLO',
-  },
-];
+import { stations } from '@/lib/stations';
+import type { CSSProperties, FC } from 'react';
 
 const random = Math.floor(Math.random() * 37466);
 
@@ -143,8 +70,7 @@ const Home: FC = () => {
   const [currentStation, setCurrentStation] = useState(stations.length);
 
   const handleError = (error: unknown) => {
-    const message =
-      error instanceof Error ? error.message : `${error as string}`;
+    const message = error instanceof Error ? error.message : (error as string);
 
     toast.error(message, { duration: Infinity });
   };
@@ -194,7 +120,7 @@ const Home: FC = () => {
             />
           </div>
           {stations.map(({ image, name }, index) => (
-            <div
+            <button
               key={name}
               className={`contrast-2 absolute flex h-[6vw] w-[6vw] items-center justify-center rounded-full bg-gray-900/20 backdrop-blur-sm transition-opacity hover:opacity-100 ${
                 index === currentStation ? 'opacity-100' : 'opacity-30'
@@ -202,7 +128,7 @@ const Home: FC = () => {
               style={position[index]}
               onClick={() => setCurrentStation(index)}
               onKeyDown={() => setCurrentStation(index)}
-              role="button"
+              type="button"
               tabIndex={0}
             >
               <Image
@@ -215,12 +141,12 @@ const Home: FC = () => {
                   ${image.endsWith('.svg') ? '' : 'brightness-0 invert'}
                 `}
               />
-            </div>
+            </button>
           ))}
-          <div
+          <button
             onClick={onClickTwitter}
             onKeyDown={onClickTwitter}
-            role="button"
+            type="button"
             tabIndex={0}
             className="absolute bottom-0 left-1/2 flex h-[6vw] w-[6vw] translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full bg-gray-900/20 opacity-30 backdrop-blur-sm transition-opacity hover:opacity-100"
           >
@@ -231,7 +157,7 @@ const Home: FC = () => {
               height={32}
               className="contrast-2 brightness-0 invert"
             />
-          </div>
+          </button>
         </div>
       </div>
     </>
