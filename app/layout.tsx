@@ -1,9 +1,9 @@
-import Analytics from '@/components/analytics';
-import Toaster from '@/components/toaster';
+import { Analytics } from '@vercel/analytics/react';
 import '@/styles/globals.css';
 import { createMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import type { FC, ReactNode } from 'react';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = createMetadata({
   title: 'San Andreas Radio',
@@ -18,7 +18,7 @@ const Layout: FC<LayoutProps> = ({ children }) => (
   <html lang="en">
     <body>
       {children}
-      <Toaster />
+      <Toaster position="bottom-right" />
       <Analytics />
     </body>
   </html>

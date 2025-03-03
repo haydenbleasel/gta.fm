@@ -14,6 +14,6 @@ export const Background = () => (
     controls={false}
     width="100%"
     height="100%"
-    className="pointer-events-none absolute aspect-video w-screen select-none opacity-60"
+    className="pointer-events-none fixed top-0 left-0 aspect-video min-h-screen w-screen select-none opacity-60"
   />
 );
