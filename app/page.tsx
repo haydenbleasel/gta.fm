@@ -9,11 +9,11 @@ const Home = () => (
     <div className="fixed top-0 left-0 z-0 h-screen w-screen bg-black">
       <Background />
     </div>
+    <div className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-10 h-[12vw] w-[12vw]">
+      <Logo />
+    </div>
     <div className="fixed z-10 flex h-screen w-screen items-center justify-center">
       <div className="relative flex h-[30vw] w-[30vw] items-center justify-center rounded-full">
-        <div className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-10 h-[12vw] w-[12vw]">
-          <Logo />
-        </div>
         <Stations />
         <a
           target="_blank"
