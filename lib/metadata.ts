@@ -16,6 +16,12 @@ const author: Metadata['authors'] = {
 const publisher = applicationName;
 const twitterHandle = '@haydenbleasel';
 
+const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+
+if (!baseUrl) {
+  throw new Error('VERCEL_PROJECT_PRODUCTION_URL is not defined');
+}
+
 export const createMetadata = ({
   title,
   description,
@@ -23,10 +29,6 @@ export const createMetadata = ({
   image,
   ...props
 }: MetadataGenerator): Metadata => {
-  if (!process.env.NEXT_PUBLIC_SITE_URL) {
-    throw new Error('NEXT_PUBLIC_SITE_URL is not defined');
-  }
-
   const parsedTitle = `${title} | ${applicationName}`;
 
   const defaultMetadata: Metadata = {
@@ -35,7 +37,7 @@ export const createMetadata = ({
     applicationName,
     authors: [author],
     creator: author.name,
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
+    metadataBase: new URL(baseUrl),
     formatDetection: {
       telephone: false,
     },
@@ -50,7 +52,7 @@ export const createMetadata = ({
       type: 'website',
       siteName: applicationName,
       locale: 'en_US',
-      url: new URL(path ?? '/', process.env.NEXT_PUBLIC_SITE_URL).toString(),
+      url: new URL(path ?? '/', baseUrl).toString(),
     },
     publisher,
     twitter: {
