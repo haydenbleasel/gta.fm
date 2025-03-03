@@ -2,7 +2,7 @@
 
 import { stations } from '@/lib/stations';
 import { cn } from '@/lib/utils';
-import { track } from '@vercel/analytics/react';
+import { track } from '@vercel/analytics';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { type CSSProperties, Fragment, useState } from 'react';
