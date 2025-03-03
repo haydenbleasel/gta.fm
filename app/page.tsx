@@ -1,8 +1,47 @@
 import { Background } from '@/components/background';
 import { Stations } from '@/components/stations';
 import { Logo } from '@/lib/logo';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import XLogo from './x.svg';
+
+const title = 'San Andreas Radio';
+const description = 'All you had to do was follow the damn train, CJ.';
+const applicationName = 'Hayden Bleasel';
+const author: Metadata['authors'] = {
+  name: applicationName,
+  url: 'https://haydenbleasel.com/',
+};
+const publisher = applicationName;
+const twitterHandle = '@haydenbleasel';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  applicationName,
+  authors: [author],
+  creator: author.name,
+  formatDetection: {
+    telephone: false,
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title,
+  },
+  openGraph: {
+    title,
+    description,
+    type: 'website',
+    siteName: applicationName,
+    locale: 'en_US',
+  },
+  publisher,
+  twitter: {
+    card: 'summary_large_image',
+    creator: twitterHandle,
+  },
+};
 
 const Home = () => (
   <>
