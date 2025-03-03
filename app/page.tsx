@@ -122,7 +122,7 @@ const Home: FC = () => {
           {stations.map(({ image, name }, index) => (
             <button
               key={name}
-              className={`contrast-2 absolute flex h-[6vw] w-[6vw] items-center justify-center rounded-full bg-gray-900/20 backdrop-blur-sm transition-opacity hover:opacity-100 ${
+              className={`contrast-2 absolute flex h-[6vw] w-[6vw] items-center justify-center rounded-full bg-gray-900/20 backdrop-blur-xs transition-opacity hover:opacity-100 ${
                 index === currentStation ? 'opacity-100' : 'opacity-30'
               }`}
               style={position[index]}
@@ -148,7 +148,7 @@ const Home: FC = () => {
             onKeyDown={onClickTwitter}
             type="button"
             tabIndex={0}
-            className="absolute bottom-0 left-1/2 flex h-[6vw] w-[6vw] translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full bg-gray-900/20 opacity-30 backdrop-blur-sm transition-opacity hover:opacity-100"
+            className="absolute bottom-0 left-1/2 flex h-[6vw] w-[6vw] translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full bg-gray-900/20 opacity-30 backdrop-blur-xs transition-opacity hover:opacity-100"
           >
             <Image
               src="/twitter.svg"
