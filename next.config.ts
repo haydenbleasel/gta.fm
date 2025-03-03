@@ -1,8 +1,9 @@
+import type { NextConfig } from 'next';
 import { createSecureHeaders } from 'next-secure-headers';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const config: NextConfig = {
   reactStrictMode: true,
+  // biome-ignore lint/suspicious/useAwait: "headers is async"
   async headers() {
     return [
       {
@@ -19,4 +20,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default config;
