@@ -39,7 +39,7 @@ export const stations: {
   {
     image: MasterSounds,
     name: 'Master Sound',
-    stream: 'https://www.youtube.com/watch?v=AsXBhthDKbA',
+    stream: 'https://www.youtube.com/watch?v=aBMXkMY6MDo',
   },
   {
     image: WCTR,
