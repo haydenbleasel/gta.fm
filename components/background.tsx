@@ -9,8 +9,6 @@ export const Background = () => {
   const random = Math.floor(Math.random() * VIDEO_DURATION);
   const src = 'https://www.youtube.com/watch?v=ZvPem5XYBrU';
 
-  console.log(random);
-
   return (
     <ReactPlayer
       className="pointer-events-none fixed top-0 left-0 aspect-video min-h-screen w-screen select-none opacity-60"
