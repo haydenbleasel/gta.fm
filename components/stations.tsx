@@ -106,7 +106,7 @@ export const Stations = () => {
           toast.error(`Error loading station ${name}`);
         }}
         playing
-        url={stream}
+        src={stream}
         width="0"
       />
     </Fragment>
