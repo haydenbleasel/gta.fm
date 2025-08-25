@@ -1,12 +1,12 @@
 'use client';
 
-import { stations } from '@/lib/stations';
-import { cn } from '@/lib/utils';
 import { track } from '@vercel/analytics';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { type CSSProperties, Fragment, useState } from 'react';
 import { toast } from 'sonner';
+import { stations } from '@/lib/stations';
+import { cn } from '@/lib/utils';
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 const position: Record<number, CSSProperties> = {
@@ -78,36 +78,36 @@ export const Stations = () => {
     <Fragment key={name}>
       <button
         className="absolute flex h-[6vw] w-[6vw] cursor-pointer items-center justify-center rounded-full bg-white/10 backdrop-blur-xs transition-all hover:bg-white/20"
-        style={position[index]}
         onClick={() => handleChangeStation(index, name)}
         onKeyDown={() => handleChangeStation(index, name)}
-        type="button"
+        style={position[index]}
         tabIndex={0}
+        type="button"
       >
         <Image
-          src={image}
           alt={name}
-          width={128}
-          height={128}
           className={cn(
             'h-[65%] w-[65%] brightness-0 invert transition-all',
             currentStation === index ? 'opacity-100' : 'opacity-20'
           )}
+          height={128}
+          src={image}
+          width={128}
         />
       </button>
       <ReactPlayer
-        url={stream}
-        muted={currentStation !== index}
-        loop
-        playing
-        controls={false}
-        width="0"
-        height="0"
         className="pointer-events-none select-none opacity-0"
+        controls={false}
+        height="0"
+        loop
+        muted={currentStation !== index}
         onError={(error) => {
           console.error(error);
           toast.error(`Error loading station ${name}`);
         }}
+        playing
+        url={stream}
+        width="0"
       />
     </Fragment>
   ));

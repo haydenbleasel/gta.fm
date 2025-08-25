@@ -12,7 +12,7 @@ const config: NextConfig = {
           // HSTS Preload: https://hstspreload.org/
           forceHTTPSRedirect: [
             true,
-            { maxAge: 63072000, includeSubDomains: true, preload: true },
+            { maxAge: 63_072_000, includeSubDomains: true, preload: true },
           ],
         }),
       },
