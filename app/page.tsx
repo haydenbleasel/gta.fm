@@ -61,8 +61,8 @@ const Home = () => (
           target="_blank"
         >
           <Image
-            alt="Follow me on Twitter"
-            className="opacity-20 brightness-0 invert transition-all group-hover:opacity-100"
+            alt="Follow me on X"
+            className="size-[50%] opacity-20 brightness-0 invert transition-all group-hover:opacity-100"
             height={32}
             src={XLogo}
             width={32}
