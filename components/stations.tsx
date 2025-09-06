@@ -1,14 +1,20 @@
+/** biome-ignore-all lint/a11y/useMediaCaption: "we don't want to use media captions" */
+
 'use client';
 
 import { track } from '@vercel/analytics';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { type CSSProperties, Fragment, useState } from 'react';
+import {
+  type CSSProperties,
+  Fragment,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { toast } from 'sonner';
 import { stations } from '@/lib/stations';
 import { cn } from '@/lib/utils';
 
-const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 const position: Record<number, CSSProperties> = {
   0: {
     top: 0,
@@ -67,14 +73,39 @@ const position: Record<number, CSSProperties> = {
 };
 
 export const Stations = () => {
-  const [currentStation, setCurrentStation] = useState(stations.length);
+  const [currentStation, setCurrentStation] = useState<number | null>(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
+
+  useEffect(() => {
+    if (!hasInteracted) {
+      return;
+    }
+
+    audioRefs.current.forEach((audio, index) => {
+      if (audio) {
+        audio.volume = currentStation === index ? 1 : 0;
+        if (audio.paused) {
+          audio.play().catch((error) => {
+            toast.error(
+              `Failed to play station ${stations[index].name}:`,
+              error
+            );
+          });
+        }
+      }
+    });
+  }, [currentStation, hasInteracted]);
 
   const handleChangeStation = (index: number, name: string) => {
+    if (!hasInteracted) {
+      setHasInteracted(true);
+    }
     setCurrentStation(index);
     track(name);
   };
 
-  return stations.map(({ image, name, stream }, index) => (
+  return stations.map(({ image, name, url }, index) => (
     <Fragment key={name}>
       <button
         className="absolute flex h-[6vw] w-[6vw] cursor-pointer items-center justify-center rounded-full bg-white/10 backdrop-blur-xs transition-all hover:bg-white/20"
@@ -95,19 +126,19 @@ export const Stations = () => {
           width={128}
         />
       </button>
-      <ReactPlayer
+      <audio
         className="pointer-events-none select-none opacity-0"
         controls={false}
-        height="0"
         loop
-        muted={currentStation !== index}
-        onError={(error) => {
-          console.error(error);
+        onError={() => {
           toast.error(`Error loading station ${name}`);
         }}
-        playing
-        src={stream}
-        width="0"
+        playsInline
+        preload="auto"
+        ref={(el) => {
+          audioRefs.current[index] = el;
+        }}
+        src={url}
       />
     </Fragment>
   ));
