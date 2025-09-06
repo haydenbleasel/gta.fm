@@ -1,7 +1,7 @@
-import { Analytics } from '@vercel/analytics/react';
-import '@/styles/globals.css';
-import type { FC, ReactNode } from 'react';
-import { Toaster } from 'sonner';
+import { Analytics } from "@vercel/analytics/react";
+import "@/styles/globals.css";
+import type { FC, ReactNode } from "react";
+import { Toaster } from "sonner";
 
 type LayoutProps = {
   readonly children: ReactNode;
