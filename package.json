@@ -13,7 +13,7 @@
     "next-secure-headers": "^2.2.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
-    "react-player": "^3.3.2",
+    "react-player": "2.16.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1"
   },

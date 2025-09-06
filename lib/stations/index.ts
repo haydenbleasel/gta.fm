@@ -14,61 +14,61 @@ import WCTR from "./logos/wctr.png";
 export const stations: {
   name: string;
   image: StaticImageData;
-  url: string;
+  stream: string;
 }[] = [
   {
     image: RadioLS,
-    name: "Radio Los Santos",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/Radio%20Los%20Santos.flac",
+    name: "Radio LS",
+    stream: "https://www.youtube.com/watch?v=40FfiNThUOY",
   },
   {
     image: RadioX,
     name: "Radio X",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/Radio%20X.flac",
+    stream: "https://www.youtube.com/watch?v=rqMLTCBSsco",
   },
   {
     image: CSR,
-    name: "CSR 103:9",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/CSR%20103.9.flac",
+    name: "SR 103:9",
+    stream: "https://www.youtube.com/watch?v=nPurvKR4jZg",
   },
   {
     image: KJAHWest,
-    name: "K-JAH West",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/K-JAH%20West.flac",
+    name: "KJAH West",
+    stream: "https://www.youtube.com/watch?v=KQCFvgmOff8",
   },
   {
     image: MasterSounds,
-    name: "Master Sounds 98.3",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/Master%20Sounds%2098.3.flac",
+    name: "Master Sound",
+    stream: "https://www.youtube.com/watch?v=aBMXkMY6MDo",
   },
   {
     image: WCTR,
-    name: "WCTR",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/West%20Coast%20Talk%20Radio.flac",
+    name: "CTR",
+    stream: "https://www.youtube.com/watch?v=ZgeHsKbGJbU",
   },
   {
     image: PlaybackFM,
     name: "Playback FM",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/Playback%20FM.flac",
+    stream: "https://www.youtube.com/watch?v=UobmbMPNc6E",
   },
   {
     image: KRose,
-    name: "K-Rose",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/K-Rose.flac",
+    name: "K Rose",
+    stream: "https://www.youtube.com/watch?v=MaP6nE7iPQg",
   },
   {
     image: KDst,
-    name: "K-DST",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/K-DST.flac",
+    name: "K DST",
+    stream: "https://www.youtube.com/watch?v=GjUrSjjUbVk",
   },
   {
     image: BounceFM,
     name: "Bounce FM",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/Bounce%20FM.flac",
+    stream: "https://www.youtube.com/watch?v=iUkf2vTXKJo",
   },
   {
     image: SFUR,
-    name: "SF-UR",
-    url: "https://fa9yqyicinhsog9q.public.blob.vercel-storage.com/SF-UR.flac",
+    name: "SFUR",
+    stream: "https://www.youtube.com/watch?v=9cA23sx-o9o",
   },
 ];
