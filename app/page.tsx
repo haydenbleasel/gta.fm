@@ -1,19 +1,19 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import { Background } from '@/components/background';
-import { Stations } from '@/components/stations';
-import { Logo } from '@/lib/logo';
-import XLogo from './x.svg';
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Background } from "@/components/background";
+import { Stations } from "@/components/stations";
+import { Logo } from "@/lib/logo";
+import XLogo from "./x.svg";
 
-const title = 'gta.fm | San Andreas Radio';
-const description = 'All you had to do was follow the damn train, CJ.';
-const applicationName = 'Hayden Bleasel';
-const author: Metadata['authors'] = {
+const title = "gta.fm | San Andreas Radio";
+const description = "All you had to do was follow the damn train, CJ.";
+const applicationName = "Hayden Bleasel";
+const author: Metadata["authors"] = {
   name: applicationName,
-  url: 'https://haydenbleasel.com/',
+  url: "https://haydenbleasel.com/",
 };
 const publisher = applicationName;
-const twitterHandle = '@haydenbleasel';
+const twitterHandle = "@haydenbleasel";
 
 export const metadata: Metadata = {
   title,
@@ -26,19 +26,19 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    statusBarStyle: 'default',
+    statusBarStyle: "default",
     title,
   },
   openGraph: {
     title,
     description,
-    type: 'website',
+    type: "website",
     siteName: applicationName,
-    locale: 'en_US',
+    locale: "en_US",
   },
   publisher,
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     creator: twitterHandle,
   },
 };

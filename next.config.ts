@@ -1,5 +1,5 @@
-import type { NextConfig } from 'next';
-import { createSecureHeaders } from 'next-secure-headers';
+import type { NextConfig } from "next";
+import { createSecureHeaders } from "next-secure-headers";
 
 const config: NextConfig = {
   reactStrictMode: true,
@@ -7,7 +7,7 @@ const config: NextConfig = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: createSecureHeaders({
           // HSTS Preload: https://hstspreload.org/
           forceHTTPSRedirect: [
