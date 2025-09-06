@@ -5,7 +5,7 @@ import { Stations } from '@/components/stations';
 import { Logo } from '@/lib/logo';
 import XLogo from './x.svg';
 
-const title = 'San Andreas Radio';
+const title = 'gta.fm | San Andreas Radio';
 const description = 'All you had to do was follow the damn train, CJ.';
 const applicationName = 'Hayden Bleasel';
 const author: Metadata['authors'] = {
