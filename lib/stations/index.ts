@@ -59,7 +59,7 @@ export const stations: {
   {
     image: KDst,
     name: "K DST",
-    stream: "https://www.youtube.com/watch?v=GjUrSjjUbVk",
+    stream: "https://www.youtube.com/watch?v=39B4_JNy-X4",
   },
   {
     image: BounceFM,
