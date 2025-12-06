@@ -3,7 +3,6 @@ import { createSecureHeaders } from "next-secure-headers";
 
 const config: NextConfig = {
   reactStrictMode: true,
-  // biome-ignore lint/suspicious/useAwait: "headers is async"
   async headers() {
     return [
       {
