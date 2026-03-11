@@ -24,7 +24,7 @@ export const stations: {
   {
     image: RadioX,
     name: "Radio X",
-    stream: "https://www.youtube.com/watch?v=rdrnAvPyza0",
+    stream: "https://www.youtube.com/watch?v=LKo2DoOb5nc",
   },
   {
     image: CSR,
